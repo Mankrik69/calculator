@@ -51,7 +51,12 @@ operations.forEach(button => {
 const equals = document.querySelector("#equals");
 equals.addEventListener("click", () => {
     secondNumber = Number(display.textContent);
-    
+
+    if (secondNumber === 0) {
+        display.textContent = "You can't divide by zero";
+        return;
+    }
+
     let result = operate(operator, firstNumber, secondNumber);
     display.textContent = Number(result.toFixed(4));
 });
