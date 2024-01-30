@@ -30,3 +30,11 @@ function operate(operator, a, b) {
 let firstNumber = 10;
 let operator = "+";
 let secondNumber = 20;
+let display = document.querySelector("#display");
+
+digitButtons = document.querySelectorAll(".digit");
+digitButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        display.textContent += button.textContent;
+    })
+});
