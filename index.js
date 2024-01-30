@@ -53,7 +53,7 @@ equals.addEventListener("click", () => {
     secondNumber = Number(display.textContent);
     
     let result = operate(operator, firstNumber, secondNumber);
-    display.textContent = result.toFixed(4);
+    display.textContent = Number(result.toFixed(4));
 });
 
 const clear = document.querySelector("#clear");
