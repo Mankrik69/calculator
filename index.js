@@ -27,14 +27,29 @@ function operate(operator, a, b) {
     }
 }
 
-let firstNumber = 10;
-let operator = "+";
-let secondNumber = 20;
-let display = document.querySelector("#display");
+let firstNumber;
+let operator;
+let secondNumber;
+const display = document.querySelector("#display");
 
-digitButtons = document.querySelectorAll(".digit");
+const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
         display.textContent += button.textContent;
     })
+});
+
+const operations = document.querySelectorAll(".operation");
+operations.forEach(button => {
+    button.addEventListener("click", () => {
+        firstNumber = Number(display.textContent);
+        operator = button.textContent;
+        display.textContent = "";
+    })
+});
+
+const equals = document.querySelector("#equals");
+equals.addEventListener("click", () => {
+    secondNumber = Number(display.textContent);
+    display.textContent = operate(operator, firstNumber, secondNumber);
 });
