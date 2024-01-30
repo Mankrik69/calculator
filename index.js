@@ -55,3 +55,11 @@ equals.addEventListener("click", () => {
     let result = operate(operator, firstNumber, secondNumber);
     display.textContent = result.toFixed(4);
 });
+
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", () => {
+    firstNumber = "";
+    secondNumber = "";
+    operation = "";
+    display.textContent = "";
+})
