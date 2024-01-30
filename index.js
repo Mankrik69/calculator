@@ -51,5 +51,7 @@ operations.forEach(button => {
 const equals = document.querySelector("#equals");
 equals.addEventListener("click", () => {
     secondNumber = Number(display.textContent);
-    display.textContent = operate(operator, firstNumber, secondNumber);
+    
+    let result = operate(operator, firstNumber, secondNumber);
+    display.textContent = result.toFixed(4);
 });
