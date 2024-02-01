@@ -50,7 +50,7 @@ operations.forEach(button => {
             secondNumber = "";
             operator = button.textContent;
             displayInput.textContent = "";
-            displayOutput.textContent = `${firstNumber} ${operator}`;
+            displayOutput.textContent = `${Number(firstNumber.toFixed(2))} ${operator}`;
         } else {
             firstNumber = Number(displayInput.textContent);
             operator = button.textContent;
@@ -73,7 +73,7 @@ equals.addEventListener("click", () => {
     let result = operate(operator, firstNumber, secondNumber);
     displayOutput.textContent = `${firstNumber} ${operator} ${secondNumber} =`;
     firstNumber = "";
-    displayInput.textContent = Number(result.toFixed(4));
+    displayInput.textContent = Number(result.toFixed(2));
 });
 
 const clear = document.querySelector("#clear");
