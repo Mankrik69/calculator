@@ -78,8 +78,8 @@ operations.forEach(button => {
     })
 });
 
-const equals = document.querySelector("#equals");
-equals.addEventListener("click", () => {
+const equalsButton = document.querySelector("#equals");
+equalsButton.addEventListener("click", () => {
     secondNumber = Number(displayInput.textContent);
 
     if (secondNumber === 0) {
@@ -94,12 +94,17 @@ equals.addEventListener("click", () => {
     displayInput.textContent = Number(result.toFixed(2));
 });
 
-const clear = document.querySelector("#clear");
-clear.addEventListener("click", () => {
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", () => {
     firstNumber = "";
     secondNumber = "";
     firstNumber = "";
     operator = "";
     displayInput.textContent = "";
     displayOutput.textContent = "";
-})
+});
+
+const deleteButton = document.querySelector("#delete");
+deleteButton.addEventListener("click", () => {
+    displayInput.textContent = displayInput.textContent.slice(0, -1);
+});
