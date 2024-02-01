@@ -27,9 +27,9 @@ function operate(operator, a, b) {
     }
 }
 
-let firstNumber;
-let operator;
-let secondNumber;
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
 const display = document.querySelector("#display");
 
 const digitButtons = document.querySelectorAll(".digit");
@@ -42,9 +42,18 @@ digitButtons.forEach(button => {
 const operations = document.querySelectorAll(".operation");
 operations.forEach(button => {
     button.addEventListener("click", () => {
-        firstNumber = Number(display.textContent);
-        operator = button.textContent;
-        display.textContent = "";
+        if (firstNumber) {
+            secondNumber = Number(display.textContent);
+            result = operate(operator, firstNumber, secondNumber);
+            firstNumber = result;
+            secondNumber = "";
+            operator = button.textContent;
+            display.textContent = "";
+        } else {
+            firstNumber = Number(display.textContent);
+            operator = button.textContent;
+            display.textContent = "";
+        }
     })
 });
 
