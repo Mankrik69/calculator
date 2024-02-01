@@ -13,6 +13,11 @@ button {
     font-size: 20px;
 }
 
+#clear,
+#delete {
+    width: 100px;
+}
+
 #input {
     font-size: 20px;
     border: 3px solid black;

@@ -40,6 +40,24 @@ digitButtons.forEach(button => {
     })
 });
 
+const zeroButton = document.querySelector("#zero");
+zeroButton.addEventListener("click", () => {
+    if (displayInput.textContent.startsWith("0")) {
+        return;
+    } else {
+        displayInput.textContent += zeroButton.textContent;
+    }
+});
+
+const dotButton = document.querySelector("#dot");
+dotButton.addEventListener("click", () => {
+    if (displayInput.textContent.includes(".")) {
+        return;
+    } else {
+        displayInput.textContent += dotButton.textContent;
+    }
+});
+
 const operations = document.querySelectorAll(".operation");
 operations.forEach(button => {
     button.addEventListener("click", () => {
@@ -81,7 +99,7 @@ clear.addEventListener("click", () => {
     firstNumber = "";
     secondNumber = "";
     firstNumber = "";
-    operation = "";
+    operator = "";
     displayInput.textContent = "";
     displayOutput.textContent = "";
 })
