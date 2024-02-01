@@ -30,12 +30,13 @@ function operate(operator, a, b) {
 let firstNumber = "";
 let operator = "";
 let secondNumber = "";
-const display = document.querySelector("#display");
+const displayInput = document.querySelector("#input");
+const displayOutput = document.querySelector("#output");
 
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
-        display.textContent += button.textContent;
+        displayInput.textContent += button.textContent;
     })
 });
 
@@ -43,37 +44,44 @@ const operations = document.querySelectorAll(".operation");
 operations.forEach(button => {
     button.addEventListener("click", () => {
         if (firstNumber) {
-            secondNumber = Number(display.textContent);
+            secondNumber = Number(displayInput.textContent);
             result = operate(operator, firstNumber, secondNumber);
             firstNumber = result;
             secondNumber = "";
             operator = button.textContent;
-            display.textContent = "";
+            displayInput.textContent = "";
+            displayOutput.textContent = `${firstNumber} ${operator}`;
         } else {
-            firstNumber = Number(display.textContent);
+            firstNumber = Number(displayInput.textContent);
             operator = button.textContent;
-            display.textContent = "";
+            displayInput.textContent = "";
+            displayOutput.textContent = `${firstNumber} ${operator}`;
         }
     })
 });
 
 const equals = document.querySelector("#equals");
 equals.addEventListener("click", () => {
-    secondNumber = Number(display.textContent);
+    secondNumber = Number(displayInput.textContent);
 
     if (secondNumber === 0) {
-        display.textContent = "You can't divide by zero";
+        displayInput.textContent = "You can't divide by zero";
+        displayOutput.textContent = `${firstNumber} ${operator} ${secondNumber} =`;
         return;
     }
 
     let result = operate(operator, firstNumber, secondNumber);
-    display.textContent = Number(result.toFixed(4));
+    displayOutput.textContent = `${firstNumber} ${operator} ${secondNumber} =`;
+    firstNumber = "";
+    displayInput.textContent = Number(result.toFixed(4));
 });
 
 const clear = document.querySelector("#clear");
 clear.addEventListener("click", () => {
     firstNumber = "";
     secondNumber = "";
+    firstNumber = "";
     operation = "";
-    display.textContent = "";
+    displayInput.textContent = "";
+    displayOutput.textContent = "";
 })
