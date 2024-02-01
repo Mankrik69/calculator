@@ -32,17 +32,24 @@ let operator = "";
 let secondNumber = "";
 const displayInput = document.querySelector("#input");
 const displayOutput = document.querySelector("#output");
+displayInput.textContent = 0;
 
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
+        if (displayInput.textContent.startsWith("0") &&
+            displayInput.textContent[1] !== ".") {
+            displayInput.textContent = "";
+        }
+
         displayInput.textContent += button.textContent;
     })
 });
 
 const zeroButton = document.querySelector("#zero");
 zeroButton.addEventListener("click", () => {
-    if (displayInput.textContent.startsWith("0")) {
+    if (displayInput.textContent.startsWith("0") &&
+        displayInput.textContent[1] !== ".") {
         return;
     } else {
         displayInput.textContent += zeroButton.textContent;
@@ -51,7 +58,8 @@ zeroButton.addEventListener("click", () => {
 
 const dotButton = document.querySelector("#dot");
 dotButton.addEventListener("click", () => {
-    if (displayInput.textContent.includes(".")) {
+    if (displayInput.textContent.includes(".") ||
+        displayInput.textContent === "") {
         return;
     } else {
         displayInput.textContent += dotButton.textContent;
