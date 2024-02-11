@@ -1,22 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
     display: flex;
     justify-content: center;
-    background-color: #000000;
+    background-color: #383838;
+    font-family: "Roboto", sans-serif;
 }
 
 #calculator {
-    border: 3px solid black;
-    margin-top: 50px;
+    margin-top: 65px;
     min-width: 100px;
     min-height: 100px;
     padding: 10px;
     border-radius: 20px;
-    border: 1px solid #ffffff;
+    border: 5px solid #ff9f0a;
+    background-color: #212121;
 }
 
 button {
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     font-size: 20px;
 }
 
@@ -31,32 +34,33 @@ button {
     margin: 10px;
     border: 3px solid black;
     border-radius: 10px;
-    border: 1px solid #ffffff;
+    border: 3px solid #ff9f0a;
     color: #ffffff;
+    background-color: #3b3b3b;
 }
 
 #clear,
 #delete {
-    flex-basis: 120px;
+    flex-basis: 140px;
     border-radius: 20px;
     border: 0;
     background-color: #a5a5a5;
 }
 
 #input {
-    font-size: 26px;
+    font-size: 40px;
     min-width: 200px;
-    min-height: 30px;
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: end;
 }
 
 #output {
-    font-size: 16px;
+    font-size: 20px;
     color: gray;
     min-width: 200px;
-    min-height: 30px;
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: end;
@@ -82,4 +86,20 @@ button {
 #equals {
     background-color: #ff9f0a;
     color: #ffffff;
+}
+
+.digit:hover,
+#dot:hover,
+#zero:hover {
+    background-color: #646464;
+}
+
+.operation:hover,
+#equals:hover {
+    background-color: #ffd849;
+}
+
+#clear:hover,
+#delete:hover {
+    background-color: #d4d3d3;
 }
