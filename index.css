@@ -1,6 +1,7 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: #000000;
 }
 
 #calculator {
@@ -9,6 +10,8 @@ body {
     min-width: 100px;
     min-height: 100px;
     padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
 }
 
 button {
@@ -27,15 +30,21 @@ button {
     padding: 10px;
     margin: 10px;
     border: 3px solid black;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
 }
 
 #clear,
 #delete {
     flex-basis: 120px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #a5a5a5;
 }
 
 #input {
-    font-size: 20px;
+    font-size: 26px;
     min-width: 200px;
     min-height: 30px;
     display: flex;
@@ -51,4 +60,26 @@ button {
     display: flex;
     align-items: center;
     justify-content: end;
+}
+
+.digit,
+.operation,
+#dot,
+#equals,
+#zero {
+    border-radius: 50%;
+    border: 0;
+}
+
+.digit,
+#dot,
+#zero {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.operation,
+#equals {
+    background-color: #ff9f0a;
+    color: #ffffff;
 }
